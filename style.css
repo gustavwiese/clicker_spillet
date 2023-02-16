@@ -1,29 +1,77 @@
 body {
-    margin: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 #screen {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
-    width: 100%;
-    aspect-ratio: 16/9;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
+  width: 100%;
+  aspect-ratio: 16/9;
 }
 
 #game {
-    grid-area: 1/1;
-    display: grid;
-    background-color: blue;
-    overflow: hidden;
-    grid-template-columns: 10%/10%;
-    grid-template-rows: 100%;
+  grid-area: 1/1;
+  display: grid;
+  background-color: blue;
+  overflow: hidden;
+  grid-template-columns: 10%/10%;
+  grid-template-rows: 100%;
 }
 
-#game_background{
-    background-size: cover;
-    background-image: url(/images/gym.png);
+#game_background {
+  background-size: cover;
+  background-image: url(/images/gym.png);
+  grid-area: 1/1;
+}
+
+#game_elements {
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#chicken_container {
+  width: 14%;
+  position: absolute;
+  left: 37%;
+}
+
+#broccoli_container {
+  width: 13%;
+  position: absolute;
+  left: 25%;
+}
+
+#shake_container {
+  width: 14%;
+  position: absolute;
+  left: 40%;
+}
+#pizza_container {
+  width: 18%;
+  position: absolute;
+  left: 45%;
+}
+#candy_container {
+  width: 15%;
+  position: absolute;
+  left: 50%;
+}
+#burger_container {
+  width: 10%;
+  position: absolute;
+  left: 60%;
+}
+
+#mig_container {
+  width: 10%;
+  position: absolute;
+  left: 45%;
+  bottom: 0;
 }
