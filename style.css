@@ -70,8 +70,56 @@ img {
 }
 
 #mig_container {
-  width: 10%;
+  width: 11%;
+  position: absolute;
+  left: 45%;
+  bottom: 0;
+  z-index: 1;
+}
+
+#migsur_container {
+  width: 8.8%;
   position: absolute;
   left: 45%;
   bottom: 0;
 }
+
+#migglad_container {
+  width: 13%;
+  position: absolute;
+  left: 44%;
+  bottom: 0;
+}
+
+#heart1_container {
+  position: absolute;
+  width: 8%;
+  left: 0;
+  top: 0;
+}
+#heart2_container {
+  position: absolute;
+  width: 8%;
+  left: 7.3%;
+  top: 0;
+}
+#heart3_container {
+  position: absolute;
+  width: 8%;
+  left: 14.6%;
+  top: 0;
+}
+#emptyheart_container {
+  position: absolute;
+  width: 8.0%;
+  left: 14.6%;
+  top: 0;
+  z-index: -1;
+}
+#timer_container{
+ position: absolute;
+  width: 15%;
+  right: 0.5%;
+  top: 0.5%;
+}
+

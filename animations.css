@@ -1,6 +1,6 @@
 .chicken_falling {
   animation-name: chicken_falling;
-  animation-duration: 1.4s;
+  animation-duration: 3s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -15,7 +15,7 @@
 }
 .broccoli_falling {
   animation-name: broccoli_falling;
-  animation-duration: 1.8s;
+  animation-duration: 2s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -30,7 +30,7 @@
 }
 .shake_falling {
   animation-name: shake_falling;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -40,12 +40,12 @@
     rotate: 100deg;
   }
   100% {
-    transform: translate(-150%, 650%) rotate(180deg);
+    transform: translate(-150%, 650%) rotate(-450deg);
   }
 }
 .pizza_falling {
   animation-name: pizza_falling;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -58,3 +58,36 @@
     transform: translate(200%, 650%) rotate(500deg);
   }
 }
+
+.candy_falling{
+  animation-name: candy_falling;
+  animation-duration: 4s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes candy_falling{
+  0%{
+    transform: translate(-100%, -500%);
+  }
+  100%{
+    transform: translate(-200%, 600%) rotate(600deg);
+  }
+}
+.burger_falling{
+  animation-name: burger_falling;
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes burger_falling{
+  0%{
+    transform: translate(-100%, -500%);
+  }
+  100%{
+    transform: translate(-200%, 600%) rotate(250deg);
+  }
+}
+
+
