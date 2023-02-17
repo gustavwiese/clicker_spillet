@@ -15,6 +15,7 @@ img {
   aspect-ratio: 16/9;
 }
 
+
 #game {
   grid-area: 1/1;
   display: grid;
@@ -119,7 +120,22 @@ img {
 #timer_container{
  position: absolute;
   width: 15%;
-  right: 0.5%;
+  right: 0;
   top: 0.5%;
+  scale: 3.3 1 ;
+}
+#scoreboard_container{
+  position: absolute;
+  top: 0;
+  left:30%;
+  translate: 0% -20%;
+  
+}
+
+div p{
+  position: absolute;
+  font-size:xx-large;
+  color: rgb(255, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
