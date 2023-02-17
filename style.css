@@ -26,7 +26,7 @@ img {
 
 #game_background {
   background-size: cover;
-  background-image: url(/images/gym.png);
+  background-image: url(images/gym.png);
   grid-area: 1/1;
 }
 
