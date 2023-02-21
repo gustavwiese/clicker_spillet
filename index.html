@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="animations.css" />
   </head>
 
   <body>
@@ -15,62 +15,79 @@
         <div id="game_background"></div>
 
         <div id="game_elements">
-          <div class="chicken_falling" id="chicken_container">
+          <div id="chicken_container">
             <img id="chicken_sprite" src="images/chicken.png" alt="kylling" />
           </div>
-          <div class="broccoli_falling" id="broccoli_container">
-            <img id="broccoli_sprite"src="images/broccoli.png"alt="broccoli" />
+          <div id="broccoli_container">
+            <img
+              id="broccoli_sprite"
+              src="images/broccoli.png"
+              alt="broccoli"
+            />
           </div>
-          <div class="shake_falling" id="shake_container">
+          <div id="shake_container">
             <img id="shake_sprite" src="images/shake.png" alt="shake" />
           </div>
-          <div class="pizza_falling" id="pizza_container">
+          <div id="pizza_container">
             <img id="pizza_sprite" src="images/pizza.png" alt="pizza" />
           </div>
-          <div class="candy_falling" id="candy_container">
+          <div id="candy_container">
             <img id="candy_sprite" src="images/candy.png" alt="candy" />
           </div>
-          <div class="burger_falling" id="burger_container">
+          <div id="burger_container">
             <img id="burger_sprite" src="images/burger.png" alt="burger" />
           </div>
           <div id="mig_container">
-            <img id="mig_sprite" src="images/mig.png" alt="mig">
+            <img id="mig_sprite" src="images/mig.png" alt="mig" />
           </div>
           <div id="migsur_container">
-            <img id="migsur_sprite" src="images/migsur.png" alt="migsur">
+            <img id="migsur_sprite" src="images/migsur.png" alt="migsur" />
           </div>
           <div id="migglad_container">
-            <img id="migglad_sprite" src="images/migglad.png" alt="migglad">
+            <img id="migglad_sprite" src="images/migglad.png" alt="migglad" />
           </div>
         </div>
 
         <div id="game_foreground"></div>
         <div id="game_ui">
-          <div id="heart1_container">
-            <img id="heart1_sprite" src="images/heart.png" alt="heart1">
+          <div>
+            <img
+              id="heart1"
+              src="images/heart.png"
+              class="active_heart"
+              alt="heart1"
+            />
           </div>
-          <div id="heart2_container">
-            <img id="heart2_sprite" src="images/heart.png" alt="heart2">
+          <div>
+            <img
+              id="heart2"
+              src="images/heart.png"
+              class="active_heart"
+              alt="heart2"
+            />
           </div>
-          <div id="heart3_container">
-            <img id="heart3_sprite" src="images/heart.png" alt="heart3">
-          </div>
-          <div id="emptyheart_container">
-            <img id="emptyheart_sprite" src="images/emptyheart.png" alt="emptyheart">
+          <div>
+            <img
+              id="heart3"
+              src="images/heart.png"
+              class="active_heart"
+              alt="heart3"
+            />
           </div>
           <div class="timer_animation" id="timer_container">
-            <img id="timer_sprite" src="images/timer.png" alt="timer">
+            <img id="timer_sprite" src="images/timer.png" alt="timer" />
           </div>
           <div id="scoreboard_container">
-            <p>Score:</p>
+            <span id="points">0</span>
           </div>
-          
         </div>
+      </div>
+
+      <div id="start" class="hidden"></div>
+      <div id="game_over" class="hidden"></div>
+      <div id="level_complete" class="hidden"></div>
     </div>
 
-      <div id="start"></div>
-      <div id="game_over"></div>
-      <div id="level_complete"></div>
-    </div>
+    <script src="script.js"></script>
   </body>
 </html>

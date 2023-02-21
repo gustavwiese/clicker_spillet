@@ -15,7 +15,6 @@ img {
   aspect-ratio: 16/9;
 }
 
-
 #game {
   grid-area: 1/1;
   display: grid;
@@ -92,50 +91,46 @@ img {
   bottom: 0;
 }
 
-#heart1_container {
+#heart1 {
   position: absolute;
   width: 8%;
   left: 0;
   top: 0;
 }
-#heart2_container {
+#heart2 {
   position: absolute;
   width: 8%;
   left: 7.3%;
   top: 0;
 }
-#heart3_container {
+#heart3 {
   position: absolute;
   width: 8%;
   left: 14.6%;
   top: 0;
 }
-#emptyheart_container {
-  position: absolute;
-  width: 8.0%;
-  left: 14.6%;
-  top: 0;
-  z-index: -2;
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
 }
-#timer_container{
- position: absolute;
+#timer_container {
+  position: absolute;
   width: 15%;
   right: 0;
   top: 0.5%;
-  scale: 3.3 1 ;
+  scale: 5 1;
+  translate: 50%;
 }
-#scoreboard_container{
+#scoreboard_container {
   position: absolute;
   top: 0;
-  left:30%;
+  left: 30%;
   translate: 0% -20%;
-  
 }
 
-div p{
+div span {
   position: absolute;
-  font-size:xx-large;
+  font-size: 75px;
   color: rgb(255, 0, 0);
   font-family: Arial, Helvetica, sans-serif;
+  translate: 100px;
 }
-

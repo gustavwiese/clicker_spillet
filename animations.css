@@ -1,6 +1,6 @@
 .chicken_falling {
   animation-name: chicken_falling;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -15,7 +15,7 @@
 }
 .broccoli_falling {
   animation-name: broccoli_falling;
-  animation-duration: 2s;
+  animation-duration: 3s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -30,7 +30,7 @@
 }
 .shake_falling {
   animation-name: shake_falling;
-  animation-duration: 3s;
+  animation-duration: 4s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -45,7 +45,7 @@
 }
 .pizza_falling {
   animation-name: pizza_falling;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
@@ -55,54 +55,80 @@
     rotate: 10deg;
   }
   100% {
-    transform: translate(200%, 650%) rotate(500deg);
+    transform: translate(300%, 650%) rotate(500deg);
   }
 }
 
-.candy_falling{
+.candy_falling {
   animation-name: candy_falling;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
 
-@keyframes candy_falling{
-  0%{
-    transform: translate(-100%, -500%);
+@keyframes candy_falling {
+  0% {
+    transform: translate(-100%, -250%);
   }
-  100%{
+  100% {
     transform: translate(-200%, 600%) rotate(600deg);
   }
 }
-.burger_falling{
+.burger_falling {
   animation-name: burger_falling;
   animation-duration: 5s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
 }
 
-@keyframes burger_falling{
-  0%{
+@keyframes burger_falling {
+  0% {
     transform: translate(-100%, -500%);
   }
-  100%{
+  100% {
     transform: translate(-200%, 600%) rotate(250deg);
   }
 }
 
-.timer_animation{
+.timer_animation {
   animation-name: timer_animation;
-  animation-duration: 5s;
+  animation-duration: 60s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-@keyframes timer_animation{
-  0%{
-    transform: scale(1);
+@keyframes timer_animation {
+  0% {
+    transform: scaleX(100%);
   }
 
-  100%{
+  100% {
+    transform: scaleX(0%);
+  }
+}
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
     transform: scale(1);
   }
+  100% {
+    transform: scale(0) rotate(500deg);
+  }
+}
+
+.paused {
+  animation-play-state: paused;
+}
+.active_heart {
+  filter: drop-shadow(0 0 2px yellow);
+}
+.broken_heart {
+  filter: grayscale(75%) blur(0.5px);
 }
