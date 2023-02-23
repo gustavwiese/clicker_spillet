@@ -25,13 +25,13 @@ function start() {
     .addEventListener("mousedown", clickShake);
   document
     .querySelector("#pizza_container")
-    .addEventListener("click", clickPizza);
+    .addEventListener("mousedown", clickPizza);
   document
     .querySelector("#burger_container")
     .addEventListener("mousedown", clickBurger);
   document
     .querySelector("#candy_container")
-    .addEventListener("click", clickCandy);
+    .addEventListener("mousedown", clickCandy);
 }
 
 function clickChicken() {
