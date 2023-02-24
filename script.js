@@ -223,6 +223,9 @@ function increasePoint() {
   console.log("increase point virker");
   points++;
   displayPoints();
+  if (points >= 10) {
+    levelComplete();
+  }
 }
 
 function decreasePoint() {
@@ -238,9 +241,57 @@ function decreaseLives() {
   console.log("decreaseLives");
   displayDecreaseLives();
   lives--;
+  if (lives <= 0) {
+    gameOver();
+  }
 }
 
 function displayDecreaseLives() {
   document.querySelector("#heart" + lives).classList.remove("active_heart");
   document.querySelector("#heart" + lives).classList.add("broken_heart");
+}
+
+function gameOver() {
+  document.querySelector("#game_over").classList.remove("hidden");
+  endGame();
+}
+
+function levelComplete() {
+  document.querySelector("#level_complete").classList.remove("hidden");
+  endGame();
+}
+
+function endGame() {
+  console.log("endGame kører");
+  document
+    .querySelector("#chicken_container")
+    .classList.remove("chicken_falling");
+  document
+    .querySelector("#broccoli_container")
+    .classList.remove("broccoli_falling");
+  document.querySelector("#shake_container").classList.remove("shake_falling");
+  document.querySelector("#pizza_container").classList.remove("pizza_falling");
+  document
+    .querySelector("#burger_container")
+    .classList.remove("burger_falling");
+  document.querySelector("#candy_container").classList.remove("candy_falling");
+
+  document
+    .querySelector("#chicken_container")
+    .removeEventListener("mousedown", clickChicken);
+  document
+    .querySelector("#broccoli_container")
+    .removeEventListener("mousedown", clickBroccoli);
+  document
+    .querySelector("#shake_container")
+    .removeEventListener("mousedown", clickShake);
+  document
+    .querySelector("#pizza_container")
+    .removeEventListener("mousedown", clickPizza);
+  document
+    .querySelector("#candy_container")
+    .removeEventListener("mousedown", clickCandy);
+  document
+    .querySelector("#burger_container")
+    .removeEventListener("mousedown", clickBurger);
 }
