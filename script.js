@@ -44,6 +44,8 @@ function clickChicken() {
     .querySelector("#chicken_container")
     .addEventListener("animationend", chickenGone);
   increasePoint();
+  document.querySelector("#godMadSound").play();
+  document.querySelector("#godMadSound").currentTime = 0;
 }
 
 function chickenGone() {
@@ -75,6 +77,8 @@ function clickBroccoli() {
     .querySelector("#broccoli_container")
     .addEventListener("animationend", broccoliGone);
   increasePoint();
+  document.querySelector("#godMadSound").play();
+  document.querySelector("#godMadSound").currentTime = 0;
 }
 
 function broccoliGone() {
@@ -108,6 +112,8 @@ function clickShake() {
     .querySelector("#shake_container")
     .addEventListener("animationend", shakeGone);
   increasePoint();
+  document.querySelector("#godMadSound").play();
+  document.querySelector("#godMadSound").currentTime = 0;
 }
 
 function shakeGone() {
@@ -138,6 +144,8 @@ function clickBurger() {
     .addEventListener("animationend", burgerGone);
   decreaseLives();
   decreasePoint();
+  document.querySelector("#dårligMadSound").play();
+  document.querySelector("#dårligMadSound").currentTime = 0;
 }
 
 function burgerGone() {
@@ -170,6 +178,8 @@ function clickPizza() {
     .addEventListener("animationend", pizzaGone);
   decreaseLives();
   decreasePoint();
+  document.querySelector("#dårligMadSound").play();
+  document.querySelector("#dårligMadSound").currentTime = 0;
 }
 
 function pizzaGone() {
@@ -200,6 +210,8 @@ function clickCandy() {
     .addEventListener("animationend", candyGone);
   decreaseLives();
   decreasePoint();
+  document.querySelector("#dårligMadSound").play();
+  document.querySelector("#dårligMadSound").currentTime = 0;
 }
 
 function candyGone() {
@@ -254,11 +266,13 @@ function displayDecreaseLives() {
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   endGame();
+   document.querySelector("#gameOverSound").play();
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
   endGame();
+  document.querySelector("#levelCompleteSound").play();
 }
 
 function endGame() {
