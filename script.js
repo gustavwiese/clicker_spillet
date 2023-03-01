@@ -1,19 +1,18 @@
 "use strict";
 let points = 0;
 let lives = 3;
-window.addEventListener("load", start);
+window.addEventListener("load", ready);
 
-function start() {
+function ready() {
   console.log("JavaScript kører");
-  document.querySelector("#chicken_container").classList.add("chicken_falling");
-  document
-    .querySelector("#broccoli_container")
-    .classList.add("broccoli_falling");
-  document.querySelector("#shake_container").classList.add("shake_falling");
-  document.querySelector("#pizza_container").classList.add("pizza_falling");
-  document.querySelector("#burger_container").classList.add("burger_falling");
-  document.querySelector("#candy_container").classList.add("candy_falling");
+  document.querySelector("#btn_start").addEventListener("click", startGame);
+}
 
+function startGame() {
+  points = 0;
+  lives = 3;
+  document.querySelector("#start").classList.add("hidden");
+  startAllAnimations();
   document
     .querySelector("#chicken_container")
     .addEventListener("mousedown", clickChicken);
@@ -32,6 +31,36 @@ function start() {
   document
     .querySelector("#candy_container")
     .addEventListener("mousedown", clickCandy);
+
+  document
+    .querySelector("#chicken_container")
+    .addEventListener("animationiteration", foodRestart);
+  document
+    .querySelector("#broccoli_container")
+    .addEventListener("animationiteration", foodRestart);
+  document
+    .querySelector("#shake_container")
+    .addEventListener("animationiteration", foodRestart);
+  document
+    .querySelector("#burger_container")
+    .addEventListener("animationiteration", foodRestart);
+  document
+    .querySelector("#pizza_container")
+    .addEventListener("animationiteration", foodRestart);
+  document
+    .querySelector("#candy_container")
+    .addEventListener("animationiteration", foodRestart);
+}
+
+function startAllAnimations() {
+  document.querySelector("#chicken_container").classList.add("chicken_falling");
+  document
+    .querySelector("#broccoli_container")
+    .classList.add("broccoli_falling");
+  document.querySelector("#shake_container").classList.add("shake_falling");
+  document.querySelector("#pizza_container").classList.add("pizza_falling");
+  document.querySelector("#burger_container").classList.add("burger_falling");
+  document.querySelector("#candy_container").classList.add("candy_falling");
 }
 
 function clickChicken() {
@@ -231,6 +260,49 @@ function candyGone() {
     .addEventListener("mousedown", clickCandy);
 }
 
+function foodRestart() {
+  console.log("Food Restart");
+  let chicken = document.querySelector("#chicken_container");
+  let broccoli = document.querySelector("#broccoli_container");
+  let shake = document.querySelector("#shake_container");
+  let burger = document.querySelector("#burger_container");
+  let pizza = document.querySelector("#pizza_container");
+  let candy = document.querySelector("#candy_container");
+
+  // genstart falling animation
+  chicken.classList.remove("chicken_falling");
+  chicken.offsetWidth;
+  chicken.classList.add("chicken_falling");
+  broccoli.classList.remove("broccoli_falling");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli_falling");
+  shake.classList.remove("shake_falling");
+  shake.offsetWidth;
+  shake.classList.add("shake_falling");
+  burger.classList.remove("burger_falling");
+  burger.offsetWidth;
+  burger.classList.add("burger_falling");
+  pizza.classList.remove("pizza_falling");
+  pizza.offsetWidth;
+  pizza.classList.add("pizza_falling");
+  candy.classList.remove("candy_falling");
+  candy.offsetWidth;
+  candy.classList.add("candy_falling");
+
+  // fjern alle positioner
+  .classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  coin.classList.add(`position${p}`);
+}
+
 function increasePoint() {
   console.log("increase point virker");
   points++;
@@ -266,7 +338,7 @@ function displayDecreaseLives() {
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
   endGame();
-   document.querySelector("#gameOverSound").play();
+  document.querySelector("#gameOverSound").play();
 }
 
 function levelComplete() {

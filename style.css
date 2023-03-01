@@ -129,7 +129,9 @@ img {
 
 .hidden,
 #game_over.hidden,
-#level_complete.hidden {
+#level_complete.hidden,
+#start.hidden,
+#game.hidden {
   display: none;
 }
 
@@ -143,7 +145,8 @@ img {
   color: #ffffff;
 }
 
-#level_complete {
+#level_complete,
+#start {
   grid-area: 1 /1;
   z-index: 999;
   display: grid;
@@ -167,4 +170,33 @@ div h2 {
   font-size: xx-large;
 }
 
+button {
+  padding: 0.5em 1em;
+  font-size: 2em;
+  margin: auto;
+  background-color: #ffad01;
+  color: #fff4bf;
+  border: 10px solid #ffc72e;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
+.position1 {
+  left: 10vw;
+}
+
+.position2 {
+  left: 40vw;
+}
+
+.position3 {
+  left: 70vw;
+}
+
+.position4 {
+  left: 30vw;
+}
+
+.position5 {
+  left: 55vw;
+}
