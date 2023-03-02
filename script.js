@@ -1,296 +1,262 @@
 "use strict";
 let points = 0;
 let lives = 3;
+let chicken = document.querySelector("#chicken_container");
+let broccoli = document.querySelector("#broccoli_container");
+let shake = document.querySelector("#shake_container");
+let pizza = document.querySelector("#pizza_container");
+let burger = document.querySelector("#burger_container");
+let candy = document.querySelector("#candy_container");
 window.addEventListener("load", ready);
 
 function ready() {
   console.log("JavaScript kører");
   document.querySelector("#btn_start").addEventListener("click", startGame);
+  document.querySelector("#btn_restart").addEventListener("click", startGame);
+  document
+    .querySelector("#btn_go_to_start")
+    .addEventListener("click", showStartScreen);
+}
+
+function showStartScreen() {
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
+function showGameScreen() {
+  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
+}
+
+function resetLives() {
+  lives = 3;
+  document.querySelector("#heart1").classList.remove("broken_heart");
+  document.querySelector("#heart2").classList.remove("broken_heart");
+  document.querySelector("#heart3").classList.remove("broken_heart");
+  document.querySelector("#heart1").classList.add("active_heart");
+  document.querySelector("#heart2").classList.add("active_heart");
+  document.querySelector("#heart3").classList.add("active_heart");
+}
+
+function resetPoints() {
+  points = 0;
+  displayPoints();
 }
 
 function startGame() {
   points = 0;
   lives = 3;
+  document
+    .querySelector("#timer_container")
+    .addEventListener("animationend", gameOver);
   document.querySelector("#start").classList.add("hidden");
   startAllAnimations();
-  document
-    .querySelector("#chicken_container")
-    .addEventListener("mousedown", clickChicken);
-  document
-    .querySelector("#broccoli_container")
-    .addEventListener("mousedown", clickBroccoli);
-  document
-    .querySelector("#shake_container")
-    .addEventListener("mousedown", clickShake);
-  document
-    .querySelector("#pizza_container")
-    .addEventListener("mousedown", clickPizza);
-  document
-    .querySelector("#burger_container")
-    .addEventListener("mousedown", clickBurger);
-  document
-    .querySelector("#candy_container")
-    .addEventListener("mousedown", clickCandy);
+  registrerClick();
+  animationRepeat();
+  showGameScreen();
+  resetLives();
+  resetPoints();
+}
 
-  document
-    .querySelector("#chicken_container")
-    .addEventListener("animationiteration", foodRestart);
-  document
-    .querySelector("#broccoli_container")
-    .addEventListener("animationiteration", foodRestart);
-  document
-    .querySelector("#shake_container")
-    .addEventListener("animationiteration", foodRestart);
-  document
-    .querySelector("#burger_container")
-    .addEventListener("animationiteration", foodRestart);
-  document
-    .querySelector("#pizza_container")
-    .addEventListener("animationiteration", foodRestart);
-  document
-    .querySelector("#candy_container")
-    .addEventListener("animationiteration", foodRestart);
+function animationRepeat() {
+  chicken.addEventListener("animationiteration", chickenRestart);
+  broccoli.addEventListener("animationiteration", broccoliRestart);
+  shake.addEventListener("animationiteration", shakeRestart);
+  burger.addEventListener("animationiteration", burgerRestart);
+  pizza.addEventListener("animationiteration", pizzaRestart);
+  candy.addEventListener("animationiteration", candyRestart);
+}
+
+function registrerClick() {
+  chicken.addEventListener("mousedown", clickChicken);
+  broccoli.addEventListener("mousedown", clickBroccoli);
+  shake.addEventListener("mousedown", clickShake);
+  pizza.addEventListener("mousedown", clickPizza);
+  burger.addEventListener("mousedown", clickBurger);
+  candy.addEventListener("mousedown", clickCandy);
 }
 
 function startAllAnimations() {
-  document.querySelector("#chicken_container").classList.add("chicken_falling");
-  document
-    .querySelector("#broccoli_container")
-    .classList.add("broccoli_falling");
-  document.querySelector("#shake_container").classList.add("shake_falling");
-  document.querySelector("#pizza_container").classList.add("pizza_falling");
-  document.querySelector("#burger_container").classList.add("burger_falling");
-  document.querySelector("#candy_container").classList.add("candy_falling");
+  chicken.classList.add("chicken_falling");
+  broccoli.classList.add("broccoli_falling");
+  shake.classList.add("shake_falling");
+  pizza.classList.add("pizza_falling");
+  burger.classList.add("burger_falling");
+  candy.classList.add("candy_falling");
+
+  chicken.classList.add("position1");
+  broccoli.classList.add("position3");
+  shake.classList.add("position2");
+  pizza.classList.add("position3");
+  burger.classList.add("position4");
+  candy.classList.add("position5");
+  document.querySelector("#timer_container").classList.add("timer_animation");
 }
 
 function clickChicken() {
-  document
-    .querySelector("#chicken_container")
-    .removeEventListener("mousedown", clickChicken);
-  document.querySelector("#chicken_container").classList.add("paused");
+  chicken.removeEventListener("mousedown", clickChicken);
+  chicken.classList.add("paused");
   document.querySelector("#chicken_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#chicken_container")
-    .addEventListener("animationend", chickenGone);
-  increasePoint();
+  chicken.addEventListener("animationend", chickenGone);
+
   document.querySelector("#godMadSound").play();
   document.querySelector("#godMadSound").currentTime = 0;
+
+  increasePoint();
 }
 
 function chickenGone() {
-  document
-    .querySelector("#chicken_container")
-    .removeEventListener("animationend", chickenGone);
+  chicken.removeEventListener("animationend", chickenGone);
 
   document.querySelector("#chicken_sprite").classList.remove("zoom_out");
-  document.querySelector("#chicken_container").classList.remove("paused");
+  chicken.classList.remove("paused");
 
-  document
-    .querySelector("#chicken_container")
-    .classList.remove("chicken_falling");
-  document.querySelector("#chicken_container").offsetWidth;
-  document.querySelector("#chicken_container").classList.add("chicken_falling");
+  chicken.classList.remove("chicken_falling");
+  chicken.offsetWidth;
+  chicken.classList.add("chicken_falling");
 
-  document
-    .querySelector("#chicken_container")
-    .addEventListener("mousedown", clickChicken);
+  chicken.addEventListener("mousedown", clickChicken);
 }
 
 function clickBroccoli() {
-  document
-    .querySelector("#broccoli_container")
-    .removeEventListener("mousedown", clickBroccoli);
-  document.querySelector("#broccoli_container").classList.add("paused");
+  broccoli.removeEventListener("mousedown", clickBroccoli);
+  broccoli.classList.add("paused");
   document.querySelector("#broccoli_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#broccoli_container")
-    .addEventListener("animationend", broccoliGone);
-  increasePoint();
+  broccoli.addEventListener("animationend", broccoliGone);
+
   document.querySelector("#godMadSound").play();
   document.querySelector("#godMadSound").currentTime = 0;
+
+  increasePoint();
 }
 
 function broccoliGone() {
-  document
-    .querySelector("#broccoli_container")
-    .removeEventListener("animationend", broccoliGone);
+  broccoli.removeEventListener("animationend", broccoliGone);
 
   document.querySelector("#broccoli_sprite").classList.remove("zoom_out");
-  document.querySelector("#broccoli_container").classList.remove("paused");
+  broccoli.classList.remove("paused");
 
-  document
-    .querySelector("#broccoli_container")
-    .classList.remove("broccoli_falling");
-  document.querySelector("#broccoli_container").offsetWidth;
-  document
-    .querySelector("#broccoli_container")
-    .classList.add("broccoli_falling");
+  broccoli.classList.remove("broccoli_falling");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli_falling");
 
-  document
-    .querySelector("#broccoli_container")
-    .addEventListener("mousedown", clickBroccoli);
+  broccoli.addEventListener("mousedown", clickBroccoli);
 }
 
 function clickShake() {
-  document
-    .querySelector("#shake_container")
-    .removeEventListener("mousedown", clickShake);
-  document.querySelector("#shake_container").classList.add("paused");
+  shake.removeEventListener("mousedown", clickShake);
+  shake.classList.add("paused");
   document.querySelector("#shake_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#shake_container")
-    .addEventListener("animationend", shakeGone);
-  increasePoint();
+  shake.addEventListener("animationend", shakeGone);
+
   document.querySelector("#godMadSound").play();
   document.querySelector("#godMadSound").currentTime = 0;
+
+  increasePoint();
 }
 
 function shakeGone() {
-  document
-    .querySelector("#shake_container")
-    .removeEventListener("animationend", shakeGone);
+  shake.removeEventListener("animationend", shakeGone);
 
   document.querySelector("#shake_sprite").classList.remove("zoom_out");
-  document.querySelector("#shake_container").classList.remove("paused");
+  shake.classList.remove("paused");
 
-  document.querySelector("#shake_container").classList.remove("shake_falling");
-  document.querySelector("#shake_container").offsetWidth;
-  document.querySelector("#shake_container").classList.add("shake_falling");
+  shake.classList.remove("shake_falling");
+  shake.offsetWidth;
+  shake.classList.add("shake_falling");
 
-  document
-    .querySelector("#shake_container")
-    .addEventListener("mousedown", clickShake);
+  shake.addEventListener("mousedown", clickShake);
 }
 
 function clickBurger() {
-  document
-    .querySelector("#burger_container")
-    .removeEventListener("mousedown", clickBurger);
-  document.querySelector("#burger_container").classList.add("paused");
+  burger.removeEventListener("mousedown", clickBurger);
+  burger.classList.add("paused");
   document.querySelector("#burger_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#burger_container")
-    .addEventListener("animationend", burgerGone);
-  decreaseLives();
-  decreasePoint();
+  burger.addEventListener("animationend", burgerGone);
+
   document.querySelector("#dårligMadSound").play();
   document.querySelector("#dårligMadSound").currentTime = 0;
+
+  decreaseLives();
+  decreasePoint();
 }
 
 function burgerGone() {
-  document
-    .querySelector("#burger_container")
-    .removeEventListener("animationend", burgerGone);
+  burger.removeEventListener("animationend", burgerGone);
 
   document.querySelector("#burger_sprite").classList.remove("zoom_out");
-  document.querySelector("#burger_container").classList.remove("paused");
+  burger.classList.remove("paused");
 
-  document
-    .querySelector("#burger_container")
-    .classList.remove("burger_falling");
-  document.querySelector("#burger_container").offsetWidth;
-  document.querySelector("#burger_container").classList.add("burger_falling");
+  burger.classList.remove("burger_falling");
+  burger.offsetWidth;
+  burger.classList.add("burger_falling");
 
-  document
-    .querySelector("#burger_container")
-    .addEventListener("mousedown", clickBurger);
+  burger.addEventListener("mousedown", clickBurger);
 }
 
 function clickPizza() {
-  document
-    .querySelector("#pizza_container")
-    .removeEventListener("mousedown", clickPizza);
-  document.querySelector("#pizza_container").classList.add("paused");
+  pizza.removeEventListener("mousedown", clickPizza);
+  pizza.classList.add("paused");
   document.querySelector("#pizza_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#pizza_container")
-    .addEventListener("animationend", pizzaGone);
-  decreaseLives();
-  decreasePoint();
+  pizza.addEventListener("animationend", pizzaGone);
+
   document.querySelector("#dårligMadSound").play();
   document.querySelector("#dårligMadSound").currentTime = 0;
+
+  decreaseLives();
+  decreasePoint();
 }
 
 function pizzaGone() {
-  document
-    .querySelector("#pizza_container")
-    .removeEventListener("animationend", pizzaGone);
+  pizza.removeEventListener("animationend", pizzaGone);
 
   document.querySelector("#pizza_sprite").classList.remove("zoom_out");
-  document.querySelector("#pizza_container").classList.remove("paused");
+  pizza.classList.remove("paused");
 
-  document.querySelector("#pizza_container").classList.remove("pizza_falling");
-  document.querySelector("#pizza_container").offsetWidth;
-  document.querySelector("#pizza_container").classList.add("pizza_falling");
+  pizza.classList.remove("pizza_falling");
+  pizza.offsetWidth;
+  pizza.classList.add("pizza_falling");
 
-  document
-    .querySelector("#pizza_container")
-    .addEventListener("mousedown", clickPizza);
+  pizza.addEventListener("mousedown", clickPizza);
 }
 
 function clickCandy() {
-  document
-    .querySelector("#candy_container")
-    .removeEventListener("mousedown", clickCandy);
-  document.querySelector("#candy_container").classList.add("paused");
+  candy.removeEventListener("mousedown", clickCandy);
+  candy.classList.add("paused");
   document.querySelector("#candy_sprite").classList.add("zoom_out");
-  document
-    .querySelector("#candy_container")
-    .addEventListener("animationend", candyGone);
-  decreaseLives();
-  decreasePoint();
+  candy.addEventListener("animationend", candyGone);
+
   document.querySelector("#dårligMadSound").play();
   document.querySelector("#dårligMadSound").currentTime = 0;
+
+  decreaseLives();
+  decreasePoint();
 }
 
 function candyGone() {
-  document
-    .querySelector("#candy_container")
-    .removeEventListener("animationend", candyGone);
+  candy.removeEventListener("animationend", candyGone);
 
   document.querySelector("#candy_sprite").classList.remove("zoom_out");
-  document.querySelector("#candy_container").classList.remove("paused");
+  candy.classList.remove("paused");
+  candy.classList.remove("candy_falling");
+  candy.offsetWidth;
+  candy.classList.add("candy_falling");
 
-  document.querySelector("#candy_container").classList.remove("candy_falling");
-  document.querySelector("#candy_container").offsetWidth;
-  document.querySelector("#candy_container").classList.add("candy_falling");
-
-  document
-    .querySelector("#candy_container")
-    .addEventListener("mousedown", clickCandy);
+  candy.addEventListener("mousedown", clickCandy);
 }
 
-function foodRestart() {
-  console.log("Food Restart");
-  let chicken = document.querySelector("#chicken_container");
-  let broccoli = document.querySelector("#broccoli_container");
-  let shake = document.querySelector("#shake_container");
-  let burger = document.querySelector("#burger_container");
-  let pizza = document.querySelector("#pizza_container");
-  let candy = document.querySelector("#candy_container");
+function chickenRestart() {
+  console.log("Chicken Restart");
 
   // genstart falling animation
   chicken.classList.remove("chicken_falling");
   chicken.offsetWidth;
   chicken.classList.add("chicken_falling");
-  broccoli.classList.remove("broccoli_falling");
-  broccoli.offsetWidth;
-  broccoli.classList.add("broccoli_falling");
-  shake.classList.remove("shake_falling");
-  shake.offsetWidth;
-  shake.classList.add("shake_falling");
-  burger.classList.remove("burger_falling");
-  burger.offsetWidth;
-  burger.classList.add("burger_falling");
-  pizza.classList.remove("pizza_falling");
-  pizza.offsetWidth;
-  pizza.classList.add("pizza_falling");
-  candy.classList.remove("candy_falling");
-  candy.offsetWidth;
-  candy.classList.add("candy_falling");
 
   // fjern alle positioner
-  .classList.remove(
+  chicken.classList.remove(
     "position1",
     "position2",
     "position3",
@@ -300,7 +266,112 @@ function foodRestart() {
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
-  coin.classList.add(`position${p}`);
+  chicken.classList.add(`position${p}`);
+}
+function broccoliRestart() {
+  console.log("Broccoli Restart");
+
+  // genstart falling animation
+  broccoli.classList.remove("broccoli_falling");
+  broccoli.offsetWidth;
+  broccoli.classList.add("broccoli_falling");
+
+  // fjern alle positioner
+  broccoli.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  broccoli.classList.add(`position${p}`);
+}
+function shakeRestart() {
+  console.log("Shake Restart");
+
+  // genstart falling animation
+  shake.classList.remove("shake_falling");
+  shake.offsetWidth;
+  shake.classList.add("shake_falling");
+
+  // fjern alle positioner
+  shake.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  shake.classList.add(`position${p}`);
+}
+function burgerRestart() {
+  console.log("Burger Restart");
+
+  // genstart falling animation
+  burger.classList.remove("burger_falling");
+  burger.offsetWidth;
+  burger.classList.add("burger_falling");
+
+  // fjern alle positioner
+  burger.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  burger.classList.add(`position${p}`);
+}
+function pizzaRestart() {
+  console.log("Pizza Restart");
+
+  // genstart falling animation
+  pizza.classList.remove("pizza_falling");
+  pizza.offsetWidth;
+  pizza.classList.add("pizza_falling");
+
+  // fjern alle positioner
+  pizza.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  pizza.classList.add(`position${p}`);
+}
+function candyRestart() {
+  console.log("Candy Restart");
+
+  // genstart falling animation
+  candy.classList.remove("candy_falling");
+  candy.offsetWidth;
+  candy.classList.add("candy_falling");
+
+  // fjern alle positioner
+  candy.classList.remove(
+    "position1",
+    "position2",
+    "position3",
+    "position4",
+    "position5"
+  );
+
+  // sæt position til en ny klasse
+  const p = Math.ceil(Math.random() * 5);
+  candy.classList.add(`position${p}`);
 }
 
 function increasePoint() {
@@ -336,48 +407,37 @@ function displayDecreaseLives() {
 }
 
 function gameOver() {
+  document
+    .querySelector("#timer_container")
+    .classList.remove("timer_animation");
+
   document.querySelector("#game_over").classList.remove("hidden");
-  endGame();
   document.querySelector("#gameOverSound").play();
+  endGame();
 }
 
 function levelComplete() {
+  document
+    .querySelector("#timer_container")
+    .classList.remove("timer_animation");
   document.querySelector("#level_complete").classList.remove("hidden");
-  endGame();
   document.querySelector("#levelCompleteSound").play();
+  endGame();
 }
 
 function endGame() {
   console.log("endGame kører");
-  document
-    .querySelector("#chicken_container")
-    .classList.remove("chicken_falling");
-  document
-    .querySelector("#broccoli_container")
-    .classList.remove("broccoli_falling");
-  document.querySelector("#shake_container").classList.remove("shake_falling");
-  document.querySelector("#pizza_container").classList.remove("pizza_falling");
-  document
-    .querySelector("#burger_container")
-    .classList.remove("burger_falling");
-  document.querySelector("#candy_container").classList.remove("candy_falling");
+  chicken.classList.remove("chicken_falling");
+  broccoli.classList.remove("broccoli_falling");
+  shake.classList.remove("shake_falling");
+  pizza.classList.remove("pizza_falling");
+  burger.classList.remove("burger_falling");
+  candy.classList.remove("candy_falling");
 
-  document
-    .querySelector("#chicken_container")
-    .removeEventListener("mousedown", clickChicken);
-  document
-    .querySelector("#broccoli_container")
-    .removeEventListener("mousedown", clickBroccoli);
-  document
-    .querySelector("#shake_container")
-    .removeEventListener("mousedown", clickShake);
-  document
-    .querySelector("#pizza_container")
-    .removeEventListener("mousedown", clickPizza);
-  document
-    .querySelector("#candy_container")
-    .removeEventListener("mousedown", clickCandy);
-  document
-    .querySelector("#burger_container")
-    .removeEventListener("mousedown", clickBurger);
+  chicken.removeEventListener("mousedown", clickChicken);
+  broccoli.removeEventListener("mousedown", clickBroccoli);
+  shake.removeEventListener("mousedown", clickShake);
+  pizza.removeEventListener("mousedown", clickPizza);
+  candy.removeEventListener("mousedown", clickCandy);
+  burger.removeEventListener("mousedown", clickBurger);
 }

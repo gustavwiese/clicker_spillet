@@ -39,34 +39,28 @@ img {
 #chicken_container {
   width: 14%;
   position: absolute;
-  left: 37%;
 }
 
 #broccoli_container {
   width: 13%;
   position: absolute;
-  left: 25%;
 }
 
 #shake_container {
   width: 14%;
   position: absolute;
-  left: 40%;
 }
 #pizza_container {
   width: 18%;
   position: absolute;
-  left: 45%;
 }
 #candy_container {
   width: 15%;
   position: absolute;
-  left: 50%;
 }
 #burger_container {
   width: 10%;
   position: absolute;
-  left: 60%;
 }
 
 #mig_container {
@@ -78,16 +72,16 @@ img {
 }
 
 #migsur_container {
-  width: 21%;
+  width: 13.5%;
   position: absolute;
-  left: 38%;
+  left: 43.5%;
   bottom: 0;
 }
 
 #migglad_container {
-  width: 25%;
+  width: 18%;
   position: absolute;
-  left: 37%;
+  left: 42%;
   bottom: 0;
 }
 
@@ -154,7 +148,20 @@ img {
   align-content: center;
   background-image: linear-gradient(150deg, #20c903 0%, #09793b 100%);
   color: #ffffff;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+#startHeader{
+  position: inherit;
+  transform: translate(0%, -150%);
+  font-size: 40px
+}
+#startText{
+  font-size: x-large;
+  transform: translate(0%, -100%);
+}
+
 
 div span {
   position: absolute;
@@ -171,15 +178,19 @@ div h2 {
 }
 
 button {
+  position: relative;
   padding: 0.5em 1em;
   font-size: 2em;
   margin: auto;
-  background-color: #ffad01;
+  background-color: #00bbff;
   color: #fff4bf;
-  border: 10px solid #ffc72e;
+  border: 10px solid #2a92f3b0;
   cursor: pointer;
   border-radius: 10px;
+  bottom: 80%;
 }
+
+
 
 .position1 {
   left: 10vw;

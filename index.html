@@ -65,7 +65,7 @@
               alt="heart3"
             />
           </div>
-          <div class="timer_animation" id="timer_container">
+          <div id="timer_container">
             <img id="timer_sprite" src="images/timer.png" alt="timer" />
           </div>
           <div id="scoreboard_container">
@@ -75,10 +75,12 @@
       </div>
 
       <div id="start">
-          <h2>Datamatikergains</h2>
-            <p>Indsaml 10 stykker god mad inden tiden løber ud,<br> 
-              men pas på det dårlige mad!</p>
-            <button id="btn_start" class="pulse">Start Spillet</button>
+        <h2 id="startHeader">Datamatikergains🍗</h2>
+        <p id="startText">
+          Indsaml 10 stykker god mad inden tiden løber ud,<br />
+          men pas på det dårlige mad!
+        </p>
+        <button id="btn_start" class="pulse">Start Spillet</button>
       </div>
       <div id="game_over" class="hidden">
         <h2>
@@ -92,6 +94,7 @@
           >
         </h2>
         <img id="migsur_container" src="images/migsur.png" alt="migsur" />
+        <button id="btn_restart" class="pulse">Prøv igen</button>
       </div>
       <div id="level_complete" class="hidden">
         <h2>
@@ -104,6 +107,7 @@
             >Datamatikergains</a
           >
         </h2>
+        <button id="btn_go_to_start" class="pulse">Tilbage til start</button>
         <img id="migglad_container" src="images/migglad.png" alt="migglad" />
       </div>
     </div>

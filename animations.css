@@ -92,9 +92,9 @@
 
 .timer_animation {
   animation-name: timer_animation;
-  animation-duration: 60s;
+  animation-duration: 15s;
   animation-timing-function: linear;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 
 @keyframes timer_animation {
@@ -135,7 +135,7 @@
 
 @keyframes pulse_kf {
     0% {
-        transform: scale(0.8);
+        transform: scale(0.85);
     }
 
     100% {
@@ -145,7 +145,7 @@
 
 .pulse {
     animation-name: pulse_kf;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-direction: alternate;
