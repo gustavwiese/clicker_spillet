@@ -13,9 +13,7 @@ function ready() {
   console.log("JavaScript kører");
   document.querySelector("#btn_start").addEventListener("click", startGame);
   document.querySelector("#btn_restart").addEventListener("click", startGame);
-  document
-    .querySelector("#btn_go_to_start")
-    .addEventListener("click", showStartScreen);
+  document.querySelector("#btn_go_to_start").addEventListener("click", showStartScreen);
 }
 
 function showStartScreen() {
@@ -48,9 +46,7 @@ function resetPoints() {
 function startGame() {
   points = 0;
   lives = 3;
-  document
-    .querySelector("#timer_container")
-    .addEventListener("animationend", gameOver);
+  document.querySelector("#timer_container").addEventListener("animationend", gameOver);
   document.querySelector("#start").classList.add("hidden");
   startAllAnimations();
   registrerClick();
@@ -58,6 +54,9 @@ function startGame() {
   showGameScreen();
   resetLives();
   resetPoints();
+  document.querySelector("#backgroundSound").play();
+  document.querySelector("#backgroundSound").currentTime = 0;
+  document.querySelector("#backgroundSound").volume = 0.1;
 }
 
 function animationRepeat() {
@@ -256,13 +255,7 @@ function chickenRestart() {
   chicken.classList.add("chicken_falling");
 
   // fjern alle positioner
-  chicken.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  chicken.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -277,13 +270,7 @@ function broccoliRestart() {
   broccoli.classList.add("broccoli_falling");
 
   // fjern alle positioner
-  broccoli.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  broccoli.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -298,13 +285,7 @@ function shakeRestart() {
   shake.classList.add("shake_falling");
 
   // fjern alle positioner
-  shake.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  shake.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -319,13 +300,7 @@ function burgerRestart() {
   burger.classList.add("burger_falling");
 
   // fjern alle positioner
-  burger.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  burger.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -340,13 +315,7 @@ function pizzaRestart() {
   pizza.classList.add("pizza_falling");
 
   // fjern alle positioner
-  pizza.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  pizza.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -361,13 +330,7 @@ function candyRestart() {
   candy.classList.add("candy_falling");
 
   // fjern alle positioner
-  candy.classList.remove(
-    "position1",
-    "position2",
-    "position3",
-    "position4",
-    "position5"
-  );
+  candy.classList.remove("position1", "position2", "position3", "position4", "position5");
 
   // sæt position til en ny klasse
   const p = Math.ceil(Math.random() * 5);
@@ -407,9 +370,7 @@ function displayDecreaseLives() {
 }
 
 function gameOver() {
-  document
-    .querySelector("#timer_container")
-    .classList.remove("timer_animation");
+  document.querySelector("#timer_container").classList.remove("timer_animation");
 
   document.querySelector("#game_over").classList.remove("hidden");
   document.querySelector("#gameOverSound").play();
@@ -417,9 +378,7 @@ function gameOver() {
 }
 
 function levelComplete() {
-  document
-    .querySelector("#timer_container")
-    .classList.remove("timer_animation");
+  document.querySelector("#timer_container").classList.remove("timer_animation");
   document.querySelector("#level_complete").classList.remove("hidden");
   document.querySelector("#levelCompleteSound").play();
   endGame();
@@ -440,4 +399,6 @@ function endGame() {
   pizza.removeEventListener("mousedown", clickPizza);
   candy.removeEventListener("mousedown", clickCandy);
   burger.removeEventListener("mousedown", clickBurger);
+
+  document.querySelector("#backgroundSound").pause();
 }
