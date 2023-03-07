@@ -152,16 +152,15 @@ img {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#startHeader{
+#startHeader {
   position: inherit;
   transform: translate(0%, -150%);
-  font-size: 40px
+  font-size: 40px;
 }
-#startText{
+#startText {
   font-size: x-large;
   transform: translate(0%, -100%);
 }
-
 
 div span {
   position: absolute;
@@ -190,8 +189,6 @@ button {
   bottom: 80%;
 }
 
-
-
 .position1 {
   left: 10vw;
 }
@@ -210,4 +207,11 @@ button {
 
 .position5 {
   left: 55vw;
+}
+
+* {
+  user-select: none;
+}
+img {
+  -webkit-user-drag: none;
 }
